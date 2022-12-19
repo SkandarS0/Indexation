@@ -1,6 +1,7 @@
 from os import listdir
 from pathlib import Path
 
+from nltk import download
 from nltk.stem.snowball import ArabicStemmer, EnglishStemmer, FrenchStemmer
 
 from core.index_parser import Index
@@ -10,9 +11,10 @@ from utils.helpers import (
 	get_input_from_choices,
 	show_info,
 	show_success,
-	show_text,
-	show_warning
+	show_text
 )
+
+download('stopwords')
 
 AVAILABLE_STEMMERS = {
 	"0": {
