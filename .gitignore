@@ -1,0 +1,5 @@
+/.style.yapf
+/.vscode
+/index.pckl
+/index3.json
+**/__pycache__
