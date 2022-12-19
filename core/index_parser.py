@@ -22,8 +22,11 @@ class Index:
 		if pickled_index_file:
 			from pickle import load as __p_load
 			with open(pickled_index_file, mode='rb') as iu:
+				pickley = __p_load(iu)
+			self.index = pickley.index
+			self.stemmer = pickley.stemmer
+			self.stopwords = pickley.stopwords
 
-				self.index = __p_load(iu).index
 		else:
 			self.stemmer = stemmer
 			self.index = defaultdict(list)
@@ -57,6 +60,7 @@ class Index:
 						document_path,
 					]
 		self.to_json("index.json")
+		self.to_pickle("index.pckl")
 
 	def lookup(self, word):
 		"""
@@ -65,7 +69,6 @@ class Index:
 		word = word.lower()
 		if self.stemmer:
 			word = self.stemmer.stem(word)
-
 		return self.index.get(word)
 
 

@@ -141,5 +141,5 @@ def file_selection(filename:str) -> Path:
 			chosen_entry = Path()
 		elif (chosen_entry.name.endswith(filename)):
 			target = chosen_entry
-			show_success(f"{filename} is successfully selected.", 1)
+			show_success(f"{filename} is successfully loading.", 1)
 			return target
