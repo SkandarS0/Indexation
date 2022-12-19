@@ -3,7 +3,7 @@ from functools import reduce as __reduce
 from os import listdir
 from time import sleep
 
-from click import Path
+from pathlib import Path
 from termcolor import cprint as __cprint
 
 __newline = "\n"
@@ -125,7 +125,7 @@ def file_selection(filename:str) -> Path:
 	while True:
 		entry_choices = {'0': '..'}
 		for entry_index, entry in enumerate(
-			listdir(chosen_entry.absolute().resolve()), 1
+			listdir(chosen_entry), 1
 			):
 			entry_choices[str(entry_index)] = entry
 		entry_choice = get_input_from_choices(
